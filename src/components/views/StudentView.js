@@ -17,7 +17,7 @@ const StudentView = (props) => {
       {/* Display the image based on the image url */}
       <img src={student.imageUrl} width="300px" alt="student" />
       <p>email: {student.email}</p>
-      <p>gpa: {student.gpa ? student.gpa: "N/A"}</p>
+      <p>gpa: {student.gpa ? student.gpa : "N/A"}</p>
       {/* Display a message when the campus has no student */}
       {student.campus === null 
         ? <p> This student has no campus.</p>
