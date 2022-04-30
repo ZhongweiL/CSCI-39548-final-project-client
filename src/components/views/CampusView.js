@@ -14,6 +14,8 @@ const CampusView = (props) => {
   return (
     <div>
       <h1>{campus.name}</h1>
+      {/* Display the image based on the image url */}
+      <img src={campus.imageUrl} width="300px" alt="campus" />
       <p>{campus.address}</p>
       <p>{campus.description}</p>
       {campus.students.map( student => {
