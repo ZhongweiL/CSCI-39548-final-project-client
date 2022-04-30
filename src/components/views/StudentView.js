@@ -14,9 +14,15 @@ const StudentView = (props) => {
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>
-      <Link to={`/campus/${student.campus.id}`}>
-        <h3>{student.campus.name}</h3>
-      </Link>
+      {/* Display the image based on the image url */}
+      <img src={student.imageUrl} width="300px" alt="student" />
+      {/* Display a message when the campus has no student */}
+      {student.campus === null 
+        ? <p> This student has no campus.</p>
+        : <Link to={`/campus/${student.campus.id}`}>
+            <h3>{student.campus.name}</h3>
+          </Link>
+      }
     </div>
   );
 

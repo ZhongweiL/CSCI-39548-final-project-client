@@ -18,6 +18,8 @@ const CampusView = (props) => {
       <img src={campus.imageUrl} width="300px" alt="campus" />
       <p>{campus.address}</p>
       <p>{campus.description}</p>
+      {/* Display a message when the campus has no student */}
+      {campus.students.length === 0 ? <p> This campus has no student.</p>: null}
       {campus.students.map( student => {
         let name = student.firstname + " " + student.lastname;
         return (
