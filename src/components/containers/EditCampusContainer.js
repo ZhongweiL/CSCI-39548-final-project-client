@@ -11,16 +11,17 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import EditCampusView from '../views/EditCampusView';
-import { addStudentThunk } from '../../store/thunks';
+import { editCampusThunk } from '../../store/thunks';
 
 class EditCampusContainer extends Component {
   // Initialize state
   constructor(props){
     super(props);
     this.state = {
-      firstname: "", 
-      lastname: "", 
-      campusId: null, 
+      id: "",
+      name: "", 
+      address: "", 
+      description: "", 
       redirect: false, 
       redirectId: null
     };
@@ -37,22 +38,25 @@ class EditCampusContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
 
-    let student = {
-        firstname: this.state.firstname,
-        lastname: this.state.lastname,
-        campusId: this.state.campusId
+    let campus = {
+        id: this.state.id,
+        name: this.state.name,
+        address: this.state.address,
+        description: this.state.description
     };
     
-    // Add new student in back-end database
-    let newStudent = await this.props.addStudent(student);
+    // Edit campus in back-end database
+    let editedCampus = await this.props.editCampus(campus);
+    console.log(editedCampus);
 
-    // Update state, and trigger redirect to show the new student
+    // Update state, and trigger redirect to show the edited campus
     this.setState({
-      firstname: "", 
-      lastname: "", 
-      campusId: null, 
+      id: "",
+      name: "", 
+      address: "", 
+      description: "",
       redirect: true, 
-      redirectId: newStudent.id
+      redirectId: campus.id
     });
   }
 
@@ -65,7 +69,7 @@ class EditCampusContainer extends Component {
   render() {
     // Redirect to new student's page after submit
     if(this.state.redirect) {
-      return (<Redirect to={`/student/${this.state.redirectId}`}/>)
+      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
     }
 
     // Display the input form via the corresponding View component
@@ -86,7 +90,7 @@ class EditCampusContainer extends Component {
 // The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
 const mapDispatch = (dispatch) => {
     return({
-        addStudent: (student) => dispatch(addStudentThunk(student)),
+        editCampus: (campus) => dispatch(editCampusThunk(campus)),
     })
 }
 
