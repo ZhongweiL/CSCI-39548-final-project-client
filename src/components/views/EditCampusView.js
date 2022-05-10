@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import PropTypes from "prop-types";
+
 // Create styling for the input form
 const useStyles = makeStyles( () => ({
   formContainer:{  
@@ -51,18 +53,28 @@ const EditCampusView = (props) => {
             </Typography>
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
-            <input type="text" name="id" onChange ={(e) => handleChange(e)} />
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Campus Id (required): </label>
+            <input required min="1" max={props.allCampuses.length} type="number" name="id" onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Name: </label>
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>New name: </label>
             <input type="text" name="name" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Address: </label>
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>New address: </label>
             <input type="text" name="address" onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
+
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>New description: </label>
+            <input type="text" name="description" onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
+
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>New image URL: </label>
+            <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
@@ -77,5 +89,9 @@ const EditCampusView = (props) => {
     </div>    
   )
 }
+
+EditCampusView.propTypes = {
+  allCampuses: PropTypes.array.isRequired,
+};
 
 export default EditCampusView;

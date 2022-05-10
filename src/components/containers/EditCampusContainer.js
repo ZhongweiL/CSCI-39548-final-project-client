@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import EditCampusView from '../views/EditCampusView';
-import { editCampusThunk } from '../../store/thunks';
+import { editCampusThunk, fetchAllCampusesThunk } from '../../store/thunks';
 
 class EditCampusContainer extends Component {
   // Initialize state
@@ -25,6 +25,13 @@ class EditCampusContainer extends Component {
       redirect: false, 
       redirectId: null
     };
+  }
+
+  // Get all campuses data from back-end database
+  componentDidMount() {
+    console.log(this.props);
+    // Load campus data if not already done so
+    if (this.props.allCampuses.length === 0)this.props.fetchAllCampuses();
   }
 
   // Capture input data when it is entered
@@ -79,6 +86,7 @@ class EditCampusContainer extends Component {
         <EditCampusView 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}      
+          allCampuses={this.props.allCampuses}
         />
       </div>          
     );
@@ -91,10 +99,20 @@ class EditCampusContainer extends Component {
 const mapDispatch = (dispatch) => {
     return({
         editCampus: (campus) => dispatch(editCampusThunk(campus)),
+        fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()),
     })
 }
+
+// 1. The "mapState" argument specifies the data from Redux Store that the component needs.
+// The "mapState" is called when the Store State changes, and it returns a data object of "allCampuses".
+// The following 2 input arguments are passed to the "connect" function used by "AllCampusesContainer" component to connect to Redux Store.
+const mapState = (state) => {
+  return {
+    allCampuses: state.allCampuses,  // Get the State object from Reducer "allCampuses"
+  };
+};  
 
 // Export store-connected container by default
 // EditCampusContainer uses "connect" function to connect to Redux Store and to read values from the Store 
 // (and re-read the values when the Store State updates).
-export default connect(null, mapDispatch)(EditCampusContainer);
+export default connect(mapState, mapDispatch)(EditCampusContainer);
