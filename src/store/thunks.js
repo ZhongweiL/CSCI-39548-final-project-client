@@ -26,7 +26,7 @@ export const editCampusThunk = campus => async dispatch => {  // The THUNK
   try {
     // Remove a field if its not being used to update (empty field)
     for (const field in campus) {
-      if (campus[field] === "") delete campus[field];
+      if (campus[field] === "" || campus[field] === null) delete campus[field];
     }
     // API "put" call to update campus (based on "id" and "student" object's data) from database
     let updatedCampus = await axios.put(`/api/campuses/${campus.id}`, campus); 
@@ -95,6 +95,10 @@ export const deleteStudentThunk = studentId => async dispatch => {  // The THUNK
 // THUNK CREATOR:
 export const editStudentThunk = student => async dispatch => {  // The THUNK
   try {
+    // Remove a field if its not being used to update (empty field)
+    for (const field in student) {
+      if (student[field] === "" || student[field] === null) delete student[field];
+    }
     // API "put" call to update student (based on "id" and "student" object's data) from database
     let updatedStudent = await axios.put(`/api/students/${student.id}`, student); 
     // Update successful so change state with dispatch

@@ -42,6 +42,10 @@ const AllStudentsView = (props) => {
       <Link to={`/newstudent`}>
         <button>Add New Student</button>
       </Link>
+      <br/>
+      <Link to={`/editstudent`}>
+        <button>Edit Student</button>
+      </Link>
       <br/><br/>
     </div>
   );
