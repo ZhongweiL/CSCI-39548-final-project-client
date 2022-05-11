@@ -63,10 +63,13 @@ class EditStudentContainer extends Component {
 
     // Update state, and trigger redirect to show the edited campus
     this.setState({
-      id: "",
-      name: "", 
-      address: "", 
-      description: "",
+      id: null,
+      firstname: "", 
+      lastname: "", 
+      email: "",
+      imageUrl: "",
+      gpa: "",
+      campusId: null,
       redirect: true, 
       redirectId: student.id
     });
