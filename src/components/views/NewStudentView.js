@@ -51,17 +51,17 @@ const NewStudentView = (props) => {
             </Typography>
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>First Name: </label>
-            <input type="text" name="firstname" onChange ={(e) => handleChange(e)} />
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>First Name (required): </label>
+            <input required type="text" name="firstname" onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Last Name: </label>
-            <input type="text" name="lastname" onChange={(e) => handleChange(e)} />
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Last Name (required): </label>
+            <input required type="text" name="lastname" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Email: </label>
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Email (required): </label>
             <input required type="email" name="email" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
