@@ -38,7 +38,7 @@ const EditCampusView = (props) => {
   const {handleChange, handleSubmit } = props;
   const classes = useStyles();
 
-  // Render a New Student view with an input form
+  // Render a New Campus view with an input form
   return (
     <div>
       <h1>Edit Campus</h1>

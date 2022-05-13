@@ -1,5 +1,5 @@
 /*==================================================
-EditCampusContainer.js
+EditStudentContainer.js
 
 The Container component is responsible for stateful logic and data fetching, and
 passes data (if any) as props to the corresponding View component.
@@ -30,10 +30,10 @@ class EditStudentContainer extends Component {
     };
   }
 
-  // Get all campuses data from back-end database
+  // Get all student data from back-end database
   componentDidMount() {
     console.log(this.props);
-    // Load campus data if not already done so
+    // Load student data if not already done so
     if (this.props.allStudents.length === 0)this.props.fetchAllStudents();
   }
 
@@ -58,10 +58,10 @@ class EditStudentContainer extends Component {
         campusId: this.state.campusId
     };
 
-    // Edit campus in back-end database
+    // Edit student in back-end database
     await this.props.editStudent(student);
 
-    // Update state, and trigger redirect to show the edited campus
+    // Update state, and trigger redirect to show the edited student
     this.setState({
       id: null,
       firstname: "", 
