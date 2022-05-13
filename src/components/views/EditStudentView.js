@@ -58,12 +58,12 @@ const EditStudentView = (props) => {
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>New first name: </label>
-            <input type="text" name="firstname" onChange={(e) => handleChange(e)} />
+            <input required type="text" name="firstname" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>New last name: </label>
-            <input type="text" name="lastname" onChange={(e) => handleChange(e)} />
+            <input required type="text" name="lastname" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
