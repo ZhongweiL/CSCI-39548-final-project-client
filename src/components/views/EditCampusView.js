@@ -58,12 +58,12 @@ const EditCampusView = (props) => {
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>New name: </label>
-            <input type="text" name="name" onChange={(e) => handleChange(e)} />
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>New name (required): </label>
+            <input required type="text" name="name" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>New address: </label>
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>New address (required): </label>
             <input required type="text" name="address" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
