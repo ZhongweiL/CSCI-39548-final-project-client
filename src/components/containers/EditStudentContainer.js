@@ -23,7 +23,7 @@ class EditStudentContainer extends Component {
       lastname: "", 
       email: "",
       imageUrl: "",
-      gpa: "",
+      gpa: null,
       campusId: null,
       redirect: false, 
       redirectId: null
@@ -55,9 +55,9 @@ class EditStudentContainer extends Component {
         email: this.state.email,
         imageUrl: this.state.imageUrl,
         gpa: this.state.gpa,
-        campusId: this.state.campusId,
+        campusId: this.state.campusId
     };
-    
+
     // Edit campus in back-end database
     await this.props.editStudent(student);
 
@@ -68,7 +68,7 @@ class EditStudentContainer extends Component {
       lastname: "", 
       email: "",
       imageUrl: "",
-      gpa: "",
+      gpa: null,
       campusId: null,
       redirect: true, 
       redirectId: student.id

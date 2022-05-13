@@ -50,8 +50,8 @@ class EditCampusContainer extends Component {
         id: this.state.id,
         name: this.state.name,
         address: this.state.address,
+        description: this.state.description,
         imageUrl: this.state.imageUrl,
-        description: this.state.description
     };
     
     // Edit campus in back-end database
