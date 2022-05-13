@@ -22,6 +22,7 @@ class EditCampusContainer extends Component {
       name: "", 
       address: "", 
       description: "", 
+      imageUrl: "",
       redirect: false, 
       redirectId: null
     };
@@ -49,6 +50,7 @@ class EditCampusContainer extends Component {
         id: this.state.id,
         name: this.state.name,
         address: this.state.address,
+        imageUrl: this.state.imageUrl,
         description: this.state.description
     };
     
@@ -61,6 +63,7 @@ class EditCampusContainer extends Component {
       name: "", 
       address: "", 
       description: "",
+      imageUrl: "",
       redirect: true, 
       redirectId: campus.id
     });
