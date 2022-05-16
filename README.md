@@ -1,6 +1,6 @@
 # client-starter-code
 
-This repository is the client (front-end) starter code for Final Project (CRUD Application).
+This repository is the client (front-end) code for Final Project (CRUD Application) of Web Development course at Hunter college.
 
 ### Use the following steps to set up and run the client (front-end) application on your local machine
 1.	Download the GitHub repository ZIP file to your local machine and unzip it.
@@ -8,3 +8,7 @@ This repository is the client (front-end) starter code for Final Project (CRUD A
 3.	Go into the "client-starter-code" folder, enter the command to install dependencies: `npm install` 
 4.	Start the client application by entering the command: `npm start` 
 5.	After the client application is successfully started, a web browser is automatically opened at the address: `http://localhost:3000` 
+
+# Group member(s)
+Zhongwei Li \
+GitHub username: ZhongweiL
