@@ -1,4 +1,4 @@
-# client-starter-code
+# client-code
 
 This repository is the client (front-end) code for Final Project (CRUD Application) of Web Development course at Hunter college.
 
